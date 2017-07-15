@@ -2,6 +2,7 @@ import { injectReducer } from '../../store/reducers'
 import { injectSagas } from '../../store/sagas'
 
 export default (store) => ({
+  path:'home',
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point

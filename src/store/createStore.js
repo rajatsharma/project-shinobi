@@ -1,6 +1,6 @@
 import { applyMiddleware, compose, createStore as createReduxStore } from 'redux'
 import thunk from 'redux-thunk'
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 import makeRootReducer from './reducers'
 import { updateLocation } from './location'
 import createSagaMiddleware from 'redux-saga'
@@ -41,7 +41,7 @@ const createStore = (initialState = {}) => {
   store.asyncReducers = {}
   store.runSaga = sagaMiddleware.run
   // To unsubscribe, invoke `store.unsubscribeHistory()` anytime
-  store.unsubscribeHistory = browserHistory.listen(updateLocation(store))
+  store.unsubscribeHistory = hashHistory.listen(updateLocation(store))
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {

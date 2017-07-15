@@ -6,10 +6,13 @@ import Home from './Home'
     PlainRoute objects to build route definitions.   */
 
 export const createRoutes = (store) => ({
-  path        : '/',
-  component   : CoreLayout,
-  indexRoute  : Home(store),
-  childRoutes : [
+  path: '/',
+  component: CoreLayout,
+  indexRoute: {
+    onEnter: (nextState, replace) => replace('home')
+  },
+  childRoutes: [
+    Home(store)
   ]
 })
 
