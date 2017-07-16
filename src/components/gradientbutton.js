@@ -6,12 +6,16 @@ import PropTypes from 'prop-types'
 const GradientButtonStyles = styled.div`
   font-size: 16px;
   padding: 10px 30px;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  border-radius: 20px;
+  margin-top: 20px;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
   color: #fff;
   cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(46, 61, 73, 0.16);
   &:hover{
-    background: linear-gradient(to right, #00B4E8, #005ED1);
+    box-shadow: none;
   }
 `
 

@@ -24,7 +24,7 @@ body {
 
 body{
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(#3494E6, #EC6EAD); // vice city background
+  background: linear-gradient(#a18cd1, #fbc2eb); // vice city background
 }
 
 .app{
@@ -40,11 +40,9 @@ body{
   width: 600px;
   height: 400px;
   background-color: #fcfbfd;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
-  -webkit-box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(46, 61, 73, 0.16);
 }
