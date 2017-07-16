@@ -4,7 +4,7 @@ import GradientButton from '../../components/gradientbutton'
 
 const Home = ({ showNotifier }) =>
   <div>
-    <GradientButton text='Show Toaster' clicker={() => showNotifier()} />
+    <GradientButton text='Hello!' clicker={() => showNotifier()} />
   </div>
 
 Home.propTypes = {
