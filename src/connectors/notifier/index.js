@@ -1,18 +1,9 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components' // eslint-disable-line
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { pick } from 'ramda'
-
-const slideInUp = keyframes`
-  from {
-    transform: translate3d(0, -100%, 0);
-    visibility: visible;
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-`
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 const NotificationWrapper = styled.div`
   background-color: ${props => props.danger ? '#FF8552' : '#85FFC7'};
@@ -23,11 +14,10 @@ const NotificationWrapper = styled.div`
   right: 50px;
   z-index: 1000;
   cursor: pointer;
-  animation: ${slideInUp} 2s cubic-bezier(0.24, 1.16, 0, 1.01);
 `
 
 const Notification = props =>
-  <div>
+  <ReactCSSTransitionGroup transitionName='notifier' transitionEnterTimeout={1500} transitionLeaveTimeout={1500}>
     {props.toasted &&
       <NotificationWrapper
         onClick={() => props.removeNotification()}
@@ -36,7 +26,7 @@ const Notification = props =>
         {props.content}
       </NotificationWrapper>
     }
-  </div>
+  </ReactCSSTransitionGroup>
 
 Notification.propTypes = {
   removeNotification: PropTypes.func,
