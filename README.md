@@ -42,3 +42,21 @@ Plainroute Object facilitates
 - Dynamic injection of routes and components
 - Centralised Route Configuration
 - Async Loading of Modules in Code Splitting
+
+#### Installation and Development
+
+- Clone the Repo `git clone https://github.com/rajatsharma305/shinobi`.
+
+- Change directory `cd shinobi`.
+
+- Checkout to required branch according to the style of configuration.
+
+- Remove git records `rm -rf .git`
+
+- `npm i or yarn install` to install dependencies.
+
+- `npm start or yarn start` to start development server.
+
+- `npm build` to build project.
+
+- `npm deploy` to deploy to `gh-pages`.

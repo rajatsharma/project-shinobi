@@ -16,9 +16,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
+    "url": "git+https://github.com/rajatsharma305/shinobi"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "Rajat Sharma",
   "license": "MIT",
   "dependencies": {
     "compression": "^1.6.2",
