@@ -2,38 +2,43 @@
 
 <img src='inspiration.png' align='right' height='100px'>
 
-An Awesome boilerplate to get things done with Redux faster by using Raw actions, direct connectors
+_An awesome boilerplate for faster web application development with Redux._
 
-#### With
+#### Styles of Configurations
 
-- Sagas
-- Thunks
-- Sass
-- Styled-Components
+- *With Sagas* uses sagas to manage asynchronous actions at branch `master`
+- *With Epics* uses Redux-observables to manage asynchronous actions at branch `redux-observables`
+- *With RRv4* uses React Router v4 for routes instead of v3 at branch `rrv4`
 
-#### without
+#### Features
 
-- Constants
-- Selectors
-- ImmutableJS
-- Actions
+###### _Hot Module Replacement_
 
-#### Good Side
+Pure Functional Components and Redux facilitates Faster Web Development without reloading of web page.
 
-##### Raw Actions
+###### _Code Splitting_
 
-Actions are not defined, use Action json `{ type: 'ACTION', payload }` to dispatch actions
+Lesser Application Load Times with Code Splitting at different routes.
 
-##### Direct Connectors
+- Promise based Module Loading with RRv4
+- Callback based Module Loading with RRv3
 
-Components can be directly connected to Redux Store, without creating dedicated Reducer for those Components and these Components can access multiple reducers, making them faster and also reducing their modularity
+###### _Faster Builds_
 
-##### Functional Lenses
+Faster and Optimised builds with Webpack v2 and Tree Shaking by Webpack.
 
-Lenses are used instead of Selectors because they are faster and has _no types_
+###### _Sideeffects_
 
-#### Dark Side
+Asynchronous Actions Management with Thunks + Sagas _(at branch `master`)_ or Thunks + Epics _(at branch `redux-observables`)_.
 
-⚠️  WARNING should not be used in Projects with large teams and highly scalable projects
+###### _Connectors_
 
-_Direct Connectors_ reduces Component modularity and Raw actions can be confusing and clash in projects with large teams.
+Modules which directly connects to Redux Store eg Notifier(or Toaster).
+
+###### _Dynamic Routing with POJO Routes_
+
+Plainroute Object facilitates
+
+- Dynamic injection of routes and components
+- Centralised Route Configuration
+- Async Loading of Modules in Code Splitting
