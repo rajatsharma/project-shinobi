@@ -47,17 +47,26 @@ Plainroute Object facilitates
 #### Installation and Development
 
 - Clone the Repo `git clone https://github.com/rajatsharma305/shinobi`.
-
 - Change directory `cd shinobi`.
-
 - Checkout to required branch according to the style of configuration.
-
 - Remove git records `rm -rf .git`
-
-- `npm i or yarn install` to install dependencies.
-
-- `npm start or yarn start` to start development server.
-
+- `npm i` to install dependencies.
+- `npm start` to start development server.
 - `npm build` to build project.
-
 - `npm deploy` to deploy to `gh-pages`.
+
+*For better results don't mix npm and yarn during installations*
+
+#### No Server Side Rendering ?
+
+[You’re Missing the Point of Server-Side Rendered JavaScript Apps](https://tomdale.net/2015/02/youre-missing-the-point-of-server-side-rendered-javascript-apps/)
+
+Check out [Hiraishin](https://github.com/rajatsharma305/hiraishin)
+
+#### The Name?
+
+Shinobi means Ninja in Japanese, The symbol above is also a Kanji for ninja.
+
+#### Uses
+
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
