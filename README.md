@@ -41,6 +41,10 @@ Asynchronous Actions Management with Thunks + Sagas _(at branch `master`)_ or Th
 
 Modules which directly connects to Redux Store eg Notifier(or Toaster).
 
+###### _PostCSS_
+
+Now modify your CSS builds/preprocessing with postcss modules.
+
 ###### _Dynamic Routing with POJO Routes_
 
 Plainroute Object facilitates
