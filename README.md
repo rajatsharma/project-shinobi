@@ -64,9 +64,9 @@ Plainroute Object facilitates
 
 #### No Server Side Rendering ?
 
-[You’re Missing the Point of Server-Side Rendered JavaScript Apps](https://tomdale.net/2015/02/youre-missing-the-point-of-server-side-rendered-javascript-apps/)
+Read this [You’re Missing the Point of Server-Side Rendered JavaScript Apps](https://tomdale.net/2015/02/youre-missing-the-point-of-server-side-rendered-javascript-apps/)
 
-Check out [Hiraishin](https://github.com/rajatsharma305/hiraishin)
+_or_ Check out [Hiraishin](https://github.com/rajatsharma305/hiraishin)
 
 #### The Name?
 
