@@ -13,6 +13,11 @@ _An awesome boilerplate for faster web application development with Redux._
 
 #### Features
 
+###### _Declarative Build Files_
+
+Build files are less cryptic so that you can modify your build according to your needs, and are now more declarative.
+_A webpack config is a function of environment_
+
 ###### _Hot Module Replacement_
 
 Pure Functional Components and Redux facilitates Faster Web Development without reloading of web page.
@@ -26,7 +31,7 @@ Lesser Application Load Times with Code Splitting at different routes.
 
 ###### _Faster Builds_
 
-Faster and Optimised builds with Webpack v2 and Tree Shaking by Webpack.
+Faster and Optimised builds with Webpack v3 and Tree Shaking by Webpack.
 
 ###### _Sideeffects_
 
