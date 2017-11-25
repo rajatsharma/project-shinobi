@@ -33,8 +33,6 @@ Lesser Application Load Times with Code Splitting at different routes.
 - Promise based Module Loading with RRv4
 - Callback based Module Loading with RRv3
 
-<img src="codescrs/codesplitting.png" height="250px">
-
 ###### _Faster Builds_
 
 Faster and Optimised builds with Webpack v3 and Tree Shaking by Webpack.
