@@ -18,9 +18,13 @@ _An awesome boilerplate for faster web application development with Redux._
 Build files are less cryptic so that you can modify your build according to your needs, and are now more declarative.
 _A webpack config is a function of environment_
 
+<img src="codescrs/webpack.png" height="150px">
+
 ###### _Hot Module Replacement_
 
 Pure Functional Components and Redux facilitates Faster Web Development without reloading of web page.
+
+<img src="codescrs/hmr.png" height="200px">
 
 ###### _Code Splitting_
 
@@ -29,6 +33,8 @@ Lesser Application Load Times with Code Splitting at different routes.
 - Promise based Module Loading with RRv4
 - Callback based Module Loading with RRv3
 
+<img src="codescrs/codesplitting.png" height="250px">
+
 ###### _Faster Builds_
 
 Faster and Optimised builds with Webpack v3 and Tree Shaking by Webpack.
@@ -36,6 +42,8 @@ Faster and Optimised builds with Webpack v3 and Tree Shaking by Webpack.
 ###### _Sideeffects_
 
 Asynchronous Actions Management with Thunks + Sagas _(at branch `master`)_ or Thunks + Epics _(at branch `redux-observables`)_.
+
+<img src="codescrs/saga.png" height="200px">
 
 ###### _Connectors_
 
@@ -52,6 +60,8 @@ Plainroute Object facilitates
 - Dynamic injection of routes and components
 - Centralised Route Configuration
 - Async Loading of Modules in Code Splitting
+
+<img src="codescrs/pojoroutes.png" height="250px">
 
 #### Installation and Development
 
