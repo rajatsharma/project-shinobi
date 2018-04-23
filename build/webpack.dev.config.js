@@ -1,8 +1,6 @@
 const postCss = require('../postcss.config')
 const webpack = require('webpack')
 
-const { inProject } = require('./lib/pathcalculator')
-
 const styleLoader = {
   test: /\.(s?)css$/,
   use: ['style-loader', 'css-loader', {
@@ -17,7 +15,8 @@ const devConfig = project => ({
   },
   entry: {
     main: [
-      `webpack-hot-middleware/client.js?path=${inProject(project.outDir)}__webpack_hmr`
+      // Must be set to the output public path of the server
+      `webpack-hot-middleware/client.js?reload=true`
     ],
   },
   plugins: [
