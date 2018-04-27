@@ -1,11 +1,10 @@
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const imageLoader = require('./loaders/imageloader')
 const fontLoader = require('./loaders/fontloader')
 const jsLoader = require('./loaders/jsloader')
 const { inProject, inProjectSrc } = require('./lib/pathcalculator')
 
-const devConfig = project => {
+const devConfig = webpack => project => {
   const __DEV__ = project.env === 'dev'
   const __TEST__ = project.env === 'test'
   const __PROD__ = project.env === 'prod'

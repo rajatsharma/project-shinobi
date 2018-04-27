@@ -1,9 +1,8 @@
 const express = require('express')
 const path = require('path')
-const webpack = require('webpack')
-const logger = require('../build/lib/logger')
-const webpackConfig = require('../build/webpack.config')
-const project = require('../project.config')
+const logger = require('./tools/lib/logger')
+const chainedpackConfig = require('./tools/webpack.config')
+const project = require('./project.config')
 const compress = require('compression')
 
 const app = express()
@@ -13,11 +12,11 @@ app.use(compress())
 // Apply Webpack HMR Middleware
 // ------------------------------------
 if (project.env === 'dev') {
-  const compiler = webpack(webpackConfig)
+  const compiler = chainedpackConfig.compiler()
 
   logger.info('Enabling webpack development and HMR middleware')
   app.use(require('webpack-dev-middleware')(compiler, {
-    publicPath  : webpackConfig.output.publicPath,
+    publicPath  : project.publicPath,
     contentBase : path.resolve(project.basePath, project.srcDir),
     hot         : true,
     quiet       : false,
@@ -66,4 +65,6 @@ if (project.env === 'dev') {
   app.use(express.static(path.resolve(project.basePath, project.outDir)))
 }
 
-module.exports = app
+app.listen(3000, () => {
+  logger.success('Server is running at http://localhost:3000')
+})

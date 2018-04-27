@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const postCss = require('../postcss.config')
 const UglifyJsWebpackPluginBeta = require('uglifyjs-webpack-plugin')
@@ -42,7 +41,7 @@ const extractStyleLoader = project => ({
   })
 })
 
-const devConfig = project => {
+const devConfig = webpack => project => {
   const __DEV__ = project.env === 'dev'
   return {
     module:{

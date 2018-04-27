@@ -1,5 +1,4 @@
 const postCss = require('../postcss.config')
-const webpack = require('webpack')
 
 const styleLoader = {
   test: /\.(s?)css$/,
@@ -9,7 +8,7 @@ const styleLoader = {
   }, 'sass-loader'] // Sass loader should be the first loader, because postcss doesn't understand Sass
 }
 
-const devConfig = project => ({
+const devConfig = webpack => project => ({
   module:{
     rules: [styleLoader],
   },
