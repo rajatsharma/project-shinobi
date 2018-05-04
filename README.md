@@ -10,19 +10,19 @@ _Say Hello to_
 
 ###### _Optionals_
 
-<img src="codescrs/optional.png" height="150px">
+<img src="codescrs/optional.png" height="300px">
 
 ###### _Pipelines_
 
-<img src="codescrs/pipeline.png" height="150px">
+<img src="codescrs/pipeline.png" height="300px">
 
 ###### _Array.flatMap and Array.flatten_
 
-<img src="codescrs/flatten.png" height="150px">
+<img src="codescrs/flatten.png" height="300px">
 
 ###### _Array.first and Array.last_
 
-<img src="codescrs/firstandlast.png" height="150px">
+<img src="codescrs/firstandlast.png" height="300px">
 
 #### Features
 
