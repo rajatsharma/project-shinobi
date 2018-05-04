@@ -1,11 +1,10 @@
-const chainedpack = require('./webpack.config')
+const lectro = require('./lectro')
 const fs = require('fs-extra')
 const path = require('path')
-const project = require('../project.config')
 
 fs.copySync(
-  path.resolve(project.basePath, 'public'),
-  path.resolve(project.basePath, project.outDir)
+  path.resolve(process.cwd(), 'public'),
+  path.resolve(process.cwd(), 'build')
 )
 
-chainedpack.build()
+lectro.build()

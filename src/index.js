@@ -20,7 +20,6 @@ let render = () => {
     MOUNT_NODE
   )
 }
-
 // Development Tools
 // ------------------------------------
 if (__DEV__) {
@@ -56,4 +55,4 @@ if (__DEV__) {
 
 // Let's Go!
 // ------------------------------------
-if (!__TEST__) render()
+render()

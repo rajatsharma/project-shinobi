@@ -4,12 +4,25 @@
 
 _An awesome boilerplate for faster web application development with Redux._
 
-#### Styles of Configurations
+#### Introducing Bleeding Edge JavaScript
 
-- *With Sagas* uses sagas to manage asynchronous actions at branch `master`
-- *With Epics* uses Redux-observables to manage asynchronous actions at branch `redux-observables`
-- *With RRv4* uses React Router v4 for routes instead of v3 at branch `rrv4`
-- *With Flow-Typed* added flow typed for flow powered type checking at branch `flow-typed`
+_Say Hello to_
+
+###### _Optionals_
+
+<img src="codescrs/optional.png" height="150px">
+
+###### _Pipelines_
+
+<img src="codescrs/pipeline.png" height="150px">
+
+###### _Array.flatMap and Array.flatten_
+
+<img src="codescrs/flatten.png" height="150px">
+
+###### _Array.first and Array.last_
+
+<img src="codescrs/firstandlast.png" height="150px">
 
 #### Features
 
