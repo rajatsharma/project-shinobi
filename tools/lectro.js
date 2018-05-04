@@ -4,7 +4,7 @@ const WebpackBar = require('webpackbar')
 
 class ShinobiLectro extends Lectro {
   addWebpackBar () {
-    return this.mutate(self => self.webpackConfig.plugins.push(new WebpackBar()))
+    return this.mutate(self => self.webpackConfig.plugins.push(new WebpackBar({ name: 'Shinobi' })))
   }
 }
 
