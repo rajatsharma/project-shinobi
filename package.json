@@ -62,6 +62,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "fs-extra": "^3.0.1",
     "rimraf": "^2.6.1",
+    "webpackbar": "2.6.1",
     "yargs": "^8.0.1"
   }
 }

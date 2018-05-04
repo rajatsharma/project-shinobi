@@ -1,5 +1,12 @@
 const Lectro = require('@lectro/core')
 const CommonUtilsEnhancer = require('@lectro/enhancer-commonutils')
+const WebpackBar = require('webpackbar')
 
-const lectro = new Lectro('web'/* Target */).apply(CommonUtilsEnhancer)
+class ShinobiLectro extends Lectro {
+  addWebpackBar () {
+    return this.mutate(self => self.webpackConfig.plugins.push(new WebpackBar()))
+  }
+}
+
+const lectro = new ShinobiLectro('web'/* Target */).addWebpackBar().apply(CommonUtilsEnhancer)
 module.exports = lectro
