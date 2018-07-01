@@ -1,8 +1,7 @@
-import reducer from '../futils/reducer'
+import reducer from "../futils/reducer";
 
-const ACTION_HANDLERS = {
-}
+const ACTION_HANDLERS = {};
 
-const initialState = {}
+const initialState = {};
 
-export default reducer(initialState, ACTION_HANDLERS)
+export default reducer(initialState, ACTION_HANDLERS);

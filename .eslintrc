@@ -1,28 +1,27 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "standard",
-    "standard-react"
-  ],
-  "plugins": [
-    "babel",
-    "react",
-    "promise"
-  ],
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "import", "react"],
   "env": {
-    "browser" : true
-  },
-  "globals": {
-    "__DEV__"      : false,
-    "__TEST__"     : false,
-    "__PROD__"     : false,
-    "__COVERAGE__" : false
+    "browser": true
   },
   "rules": {
-    "key-spacing"          : "off",
-    "jsx-quotes"           : [2, "prefer-single"],
-    "max-len"              : [2, 120, 2],
-    "object-curly-spacing" : [2, "always"],
-    "comma-dangle"         : "off"
+    "prettier/prettier": "error",
+    "func-names": ["error", "never"],
+    "no-param-reassign": 0,
+    "class-methods-use-this": 0,
+    "import/no-extraneous-dependencies": 0,
+    "prefer-template": 0,
+    "no-console": 0,
+    "global-require": 0,
+    "react/jsx-filename-extension": 0,
+    "no-underscore-dangle": 0,
+    "import/no-named-as-default": 0
+  },
+  "globals": {
+    "__DEV__": false,
+    "__TEST__": false,
+    "__PROD__": false,
+    "__COVERAGE__": false
   }
 }

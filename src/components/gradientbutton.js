@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router' //eslint-disable-line
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React from "react";
+import { Link } from "react-router"; //eslint-disable-line
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const GradientButtonStyles = styled.div`
   font-size: 16px;
@@ -14,19 +14,18 @@ const GradientButtonStyles = styled.div`
   color: #fff;
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(46, 61, 73, 0.16);
-  &:hover{
+  &:hover {
     box-shadow: none;
   }
-`
+`;
 
-const GradientButton = ({ text, clicker }) =>
-  <GradientButtonStyles onClick={() => clicker()}>
-    {text}
-  </GradientButtonStyles>
+const GradientButton = ({ text, clicker }) => (
+  <GradientButtonStyles onClick={() => clicker()}>{text}</GradientButtonStyles>
+);
 
 GradientButton.propTypes = {
-  text:PropTypes.string,
-  clicker: PropTypes.func
-}
+  text: PropTypes.string.isRequired,
+  clicker: PropTypes.func.isRequired
+};
 
-export default GradientButton
+export default GradientButton;

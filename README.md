@@ -85,7 +85,7 @@ Plainroute Object facilitates
 - `npm build` to build project.
 - `npm deploy` to deploy to `gh-pages`.
 
-*For better results don't mix npm and yarn during installations*
+_For better results don't mix npm and yarn during installations_
 
 #### No Server Side Rendering ?
 
@@ -96,7 +96,3 @@ _or_ Check out [Hiraishin](https://github.com/rajatsharma305/hiraishin)
 #### The Name?
 
 Shinobi means Ninja in Japanese, The symbol above is also a Kanji for ninja.
-
-#### Uses
-
-[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)

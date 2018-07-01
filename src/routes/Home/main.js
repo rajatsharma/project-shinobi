@@ -1,14 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import GradientButton from '../../components/gradientbutton'
+import React from "react";
+import PropTypes from "prop-types";
+import GradientButton from "../../components/gradientbutton";
 
-const Home = ({ showNotifier }) =>
+const Home = ({ showNotifier }) => (
   <div>
-    <GradientButton text='Hello!' clicker={() => showNotifier()} />
+    <GradientButton text="Hello!" clicker={() => showNotifier()} />
   </div>
+);
 
 Home.propTypes = {
-  showNotifier: PropTypes.func
-}
+  showNotifier: PropTypes.func.isRequired
+};
 
-export default Home
+export default Home;

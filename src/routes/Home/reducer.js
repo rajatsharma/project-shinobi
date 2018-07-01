@@ -1,4 +1,4 @@
-import reducer from '../../futils/reducer'
+import reducer from "../../futils/reducer";
 
 // ------------------------------------
 // Constants
@@ -7,12 +7,11 @@ import reducer from '../../futils/reducer'
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-const ACTION_HANDLERS = {
-}
+const ACTION_HANDLERS = {};
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = {}
+const initialState = {};
 
-export default reducer(initialState, ACTION_HANDLERS)
+export default reducer(initialState, ACTION_HANDLERS);
