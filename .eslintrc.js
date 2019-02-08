@@ -1,1 +1,1 @@
-module.exports = require('@hellpack/eslint')();
+module.exports = require('@hellpack/eslint')({});
