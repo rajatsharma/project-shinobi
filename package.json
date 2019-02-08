@@ -1,7 +1,7 @@
 {
   "name": "@enginite/shinobi",
-  "version": "3.0.0-alpha.2",
-  "description": "Create server-rendered universal JavaScript applications with no configuration",
+  "version": "0.1.0-alpha.1",
+  "description": "React Enginite App with SSR",
   "repository": "git@github.com:rajatsharma/shinobi.git",
   "author": "Rajat Sharma",
   "license": "MIT",
