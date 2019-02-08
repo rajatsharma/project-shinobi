@@ -1,52 +1,32 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import createStore from "./store/createStore";
-import "./styles/main.scss";
+import http from 'http';
 
-// Store Initialization
-// ------------------------------------
-const store = createStore(window.__INITIAL_STATE__);
+let app = require('./server').default;
 
-// Render Setup
-// ------------------------------------
-const MOUNT_NODE = document.getElementById("root");
+const server = http.createServer(app);
 
-let render = () => {
-  const App = require("./core/App").default;
-  const routes = require("./routes/index").default(store);
+let currentApp = app;
 
-  ReactDOM.render(<App store={store} routes={routes} />, MOUNT_NODE);
-};
-// Development Tools
-// ------------------------------------
-if (__DEV__) {
-  if (module.hot) {
-    const renderApp = render;
-    const renderError = error => {
-      const RedBox = require("redbox-react").default;
-
-      ReactDOM.render(<RedBox error={error} />, MOUNT_NODE);
-    };
-
-    render = () => {
-      try {
-        renderApp();
-      } catch (e) {
-        console.error(e);
-        renderError(e);
-      }
-    };
-
-    // Setup hot module replacement
-    module.hot.accept(["./core/App", "./routes/index"], () =>
-      setImmediate(() => {
-        ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-        render();
-      })
-    );
+server.listen(process.env.PORT || 3000, error => {
+  if (error) {
+    console.log(error);
   }
-}
 
-// Let's Go!
-// ------------------------------------
-render();
+  console.log('🚀 started');
+});
+
+if (module.hot) {
+  console.log('✅  Server-side HMR Enabled!');
+
+  module.hot.accept('./server', () => {
+    console.log('🔁  HMR Reloading `./server`...');
+
+    try {
+      app = require('./server').default;
+      server.removeListener('request', currentApp);
+      server.on('request', app);
+      currentApp = app;
+    } catch (error) {
+      console.error(error);
+    }
+  });
+}
