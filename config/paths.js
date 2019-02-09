@@ -1,5 +1,3 @@
-
-
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
@@ -15,11 +13,11 @@ function ensureSlash(path, needsSlash) {
   const hasSlash = path.endsWith('/');
   if (hasSlash && !needsSlash) {
     return path.substr(path, path.length - 1);
-  } if (!hasSlash && needsSlash) {
+  }
+  if (!hasSlash && needsSlash) {
     return `${path}/`;
-  } 
-    return path;
-  
+  }
+  return path;
 }
 
 const getPublicUrl = appPackageJson =>
@@ -54,7 +52,7 @@ module.exports = {
   appClientIndexJs: resolveApp('src/client'),
   testsSetup: resolveApp('src/setupTests.js'),
   appBabelRc: resolveApp('.babelrc'),
-  appEslintRc: resolveApp('.eslintrc.js'),
+  appEslintRc: resolveApp('.eslintrc'),
   appWebpackConfig: resolveApp('webpack.config.js'),
   appShinobiConfig: resolveApp('shinobi.config.js'),
   nodePaths,

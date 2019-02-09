@@ -39,6 +39,16 @@ function main() {
     }
   }
 
+  if (fs.existsSync(paths.appWebpackConfig)) {
+    try {
+      shinobi = require(paths.appWebpackConfig);
+    } catch (e) {
+      clearConsole();
+      logger.error('Invalid webpack.config.js file.', e);
+      process.exit(1);
+    }
+  }
+
   // Delete assets.json to always have a manifest up to date
   fs.removeSync(paths.appManifest);
 

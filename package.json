@@ -17,7 +17,7 @@
     "start": "node scripts/start.js",
     "wrap": "node scripts/wrap.js",
     "build": "node scripts/build.js",
-    "prepublishOnly": "git add . ; git commit -mPublishing ; git push origin master ; yarn wrap"
+    "prepublishOnly": "yarn wrap"
   },
   "keywords": [
     "react",

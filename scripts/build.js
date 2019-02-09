@@ -78,6 +78,12 @@ function build(previousFileSizes) {
   } catch (e) {}
   /* eslint-enable */
 
+  try {
+    shinobi = require(paths.appWebpackConfig);
+    /* eslint-disable no-empty */
+  } catch (e) {}
+  /* eslint-enable */
+
   if (shinobi.clearConsole === false || !!shinobi.host || !!shinobi.port) {
     logger.warn(`Specifying options \`port\`, \`host\`, and \`clearConsole\` in shinobi.config.js has been deprecated.
 Please use a .env file instead.
