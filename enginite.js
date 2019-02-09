@@ -5,7 +5,6 @@ module.exports = {
     '.prettierrc.js',
     'scripts/dev.js',
     'scripts/build.js',
-    'babel.config.js',
   ],
   packageScripts: ['dev', 'build'],
 };
