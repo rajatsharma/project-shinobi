@@ -1,6 +1,6 @@
 {
   "name": "@enginite/shinobi",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.5",
   "description": "React Enginite App with SSR",
   "repository": "git@github.com:rajatsharma/shinobi.git",
   "author": "Rajat Sharma",
@@ -8,24 +8,15 @@
   "bin": {
     "shinobi": "./bin/shinobi.js"
   },
-  "files": [
-    "bin",
-    "lib",
-    "enginite.js"
-  ],
+  "main": "lib/index.js",
+  "files": ["bin", "lib", "enginite.js"],
   "scripts": {
-    "start": "node scripts/start.js",
+    "dev": "node scripts/dev.js",
     "wrap": "node scripts/wrap.js",
     "build": "node scripts/build.js",
     "prepublishOnly": "yarn wrap"
   },
-  "keywords": [
-    "react",
-    "webpack",
-    "ssr",
-    "universal",
-    "isomorphic"
-  ],
+  "keywords": ["react", "webpack", "ssr", "universal", "isomorphic"],
   "dependencies": {
     "@babel/core": "^7.1.2",
     "@hellpack/eslint-config-hellpack": "2.0.0-alpha.1",
@@ -46,6 +37,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.0.6",
     "postcss-safe-parser": "^4.0.1",
+    "prettier": "1.16.4",
     "razzle-dev-utils": "^3.0.0-alpha.2",
     "react-dev-utils": "^6.0.4",
     "react-error-overlay": "^5.0.4",
@@ -60,6 +52,10 @@
     "webpack-dev-server": "^3.1.14",
     "webpack-node-externals": "^1.7.2",
     "webpackbar": "^3.1.5"
+  },
+  "peerDependencies": {
+    "react": "16.8.1",
+    "react-dom": "16.8.1"
   },
   "devDependencies": {
     "@enginite/standard": "^0.1.0-alpha.1",
