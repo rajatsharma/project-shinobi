@@ -1,4 +1,4 @@
-'use strict';
+
 
 function runPlugin(plugin, config, { target, dev }, webpack) {
   if (typeof plugin === 'string') {

@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs-extra');
 const path = require('path');
@@ -107,7 +107,7 @@ module.exports = (
     // Set webpack context to the current command's directory
     context: process.cwd(),
     // Specify target (either 'node' or 'web')
-    target: target,
+    target,
     // Controversially, decide on sourcemaps.
     devtool: IS_DEV ? 'cheap-module-source-map' : 'source-map',
     // We need to tell webpack how to resolve both Shinobi's node_modules and

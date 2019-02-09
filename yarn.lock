@@ -705,10 +705,17 @@
   dependencies:
     fs-extra "^7.0.1"
 
-"@hellpack/eslint@^0.1.0":
-  version "0.1.0"
-  resolved "https://wedmegood.com/component-registry/@hellpack%2feslint/-/eslint-0.1.0.tgz#14ef9ec7af1bc48d6241b80edfd66a04fca3b643"
-  integrity sha512-9wGOqMhKc1IhOwnus0S+XpVszGF5gWUTxYoG9VnsQWlDZXMgDB8tNTAFznfDqwM0pqKd9OYOBGMHPPfv9zFK3w==
+"@hellpack/eslint-config-hellpack@2.0.0-alpha.1":
+  version "2.0.0-alpha.1"
+  resolved "http://localhost:4873/@hellpack%2feslint-config-hellpack/-/eslint-config-hellpack-2.0.0-alpha.1.tgz#7dd9f566ce9c5739c5e20dd72cb26e667a7b8344"
+  integrity sha512-/d1j/VEIsoXTv+8lHySlpCagC779sld9O1+wUidF0orhgS2spW2ORsdKeFPxRTuzmwaFZ8sm6jdC09KZki491g==
+  dependencies:
+    "@hellpack/eslint" "0.1.1"
+
+"@hellpack/eslint@0.1.1":
+  version "0.1.1"
+  resolved "http://localhost:4873/@hellpack%2feslint/-/eslint-0.1.1.tgz#ee9d7c86cd006ea02a5e1fcc74f6ae3833484b9a"
+  integrity sha512-WGM1XWvmDBDJJaZnEHTbirXLFbugwTa7BGAYRTFoJzDQOv4bTOY+tDvJ/OAXlgA02v/J0SwKYsLlICpq3JRR6g==
   dependencies:
     babel-eslint "10.0.1"
     eslint "5.9.0"

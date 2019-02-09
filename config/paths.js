@@ -1,4 +1,4 @@
-'use strict';
+
 
 const path = require('path');
 const fs = require('fs');
@@ -15,11 +15,11 @@ function ensureSlash(path, needsSlash) {
   const hasSlash = path.endsWith('/');
   if (hasSlash && !needsSlash) {
     return path.substr(path, path.length - 1);
-  } else if (!hasSlash && needsSlash) {
+  } if (!hasSlash && needsSlash) {
     return `${path}/`;
-  } else {
+  } 
     return path;
-  }
+  
 }
 
 const getPublicUrl = appPackageJson =>

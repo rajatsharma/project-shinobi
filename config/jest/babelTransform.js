@@ -1,8 +1,8 @@
-'use strict';
+
 
 const babelJest = require('babel-jest');
-const paths = require('../paths');
 const fs = require('fs-extra');
+const paths = require('../paths');
 
 const hasBabelRc = fs.existsSync(paths.appBabelRc);
 
