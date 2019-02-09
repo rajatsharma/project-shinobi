@@ -9,6 +9,7 @@
     "shinobi": "./bin/shinobi.js"
   },
   "files": [
+    "bin",
     "lib",
     "enginite.js"
   ],
