@@ -13,6 +13,8 @@ indent_style = space
 # Possible values - an integer, tab
 indent_size = 2
 
+tab_width = 2
+
 # Line ending file format
 # Possible values - lf, crlf, cr
 end_of_line = lf

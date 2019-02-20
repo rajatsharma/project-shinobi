@@ -9,14 +9,24 @@
     "shinobi": "./bin/shinobi.js"
   },
   "main": "lib/index.js",
-  "files": ["bin", "lib", "enginite.js"],
+  "files": [
+    "bin",
+    "lib",
+    "enginite.js"
+  ],
   "scripts": {
     "dev": "node scripts/dev.js",
     "wrap": "node scripts/wrap.js",
     "build": "node scripts/build.js",
     "prepublishOnly": "yarn wrap"
   },
-  "keywords": ["react", "webpack", "ssr", "universal", "isomorphic"],
+  "keywords": [
+    "react",
+    "webpack",
+    "ssr",
+    "universal",
+    "isomorphic"
+  ],
   "dependencies": {
     "@babel/core": "7.1.2",
     "@hellpack/eslint-config-hellpack": "2.0.0-alpha.2",
@@ -38,6 +48,7 @@
     "postcss-preset-env": "6.0.6",
     "postcss-safe-parser": "4.0.1",
     "prettier": "1.16.4",
+    "prop-types": "15.7.2",
     "razzle-dev-utils": "3.0.0-alpha.2",
     "react-dev-utils": "6.0.4",
     "react-error-overlay": "5.0.4",
@@ -55,11 +66,17 @@
   },
   "peerDependencies": {
     "react": "16.8.1",
-    "react-dom": "16.8.1"
+    "react-dom": "16.8.1",
+    "redux": "4.0.1",
+    "react-redux": "6.0.1",
+    "express": "4.16.4"
   },
   "devDependencies": {
     "@enginite/standard": "0.1.0-alpha.1",
-    "react": "16.8.1",
-    "react-dom": "16.8.1"
+    "react": "16.8.2",
+    "react-dom": "16.8.2",
+    "redux": "4.0.1",
+    "react-redux": "6.0.1",
+    "express": "4.16.4"
   }
 }
