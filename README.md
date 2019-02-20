@@ -17,3 +17,36 @@
         <img src="https://img.shields.io/badge/uses-hellpack%20%F0%9F%94%A5-%23414770.svg" alt="hellpack"/>
   </a>
 </p>
+
+## Pre-requisites
+
+- [Git](https://git-scm.com)
+- [Node.js](https://nodejs.org/en/download)
+- [yarn](https://yarnpkg.com/en/docs/getting-started)
+
+## Getting Started
+
+```bash
+# Create Shinobi App
+$ npx @enginite/create-app myApp @enginite/shinobi 
+# The above command will generate a shinobi project with the files you need for App development 
+
+# Go into the repository
+$ cd myApp
+
+# Install dependencies
+$ yarn dev
+```
+## Available Commands
+
+```bash
+# Start a dev server (with server side HMR enabled) using
+$ yarn dev
+
+# Build your application using
+$ yarn build
+# This will generate a build folder with application ready to start at production server
+
+# To run app on production server use this
+$ node build/server.js
+```
