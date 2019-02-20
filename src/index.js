@@ -19,7 +19,7 @@ if (module.hot) {
 
   module.hot.accept('./server', () => {
     console.log('🔁  HMR Reloading `./server`...');
-
+    /*eslint-disable */
     try {
       app = require('./server').default;
       server.removeListener('request', currentApp);
