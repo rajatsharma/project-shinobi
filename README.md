@@ -37,16 +37,17 @@ $ cd myApp
 # Install dependencies
 $ yarn dev
 ```
-## Available Commands
 
-```bash
-# Start a dev server (with server side HMR enabled) using
-$ yarn dev
+_After your project is generated the following commands will be available_
 
-# Build your application using
-$ yarn build
-# This will generate a build folder with application ready to start at production server
+#### `yarn dev` or `npm start`
 
-# To run app on production server use this
-$ node build/server.js
-```
+Runs your application at localhost:3000 with HMR enabled, which will automatically make changes to your application with reloading your browser.
+
+#### `yarn build` or `npm run build`
+
+This will generate a build folder with application ready to start at production server
+
+##### `node build/server.js`
+
+This will run your built application at port 3000, to run on specified port run with `PORT=8080 node build/server.js`.
