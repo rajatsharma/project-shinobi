@@ -1,7 +1,7 @@
-import App from './App';
 import React from 'react';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
+import App from './App';
 
 const assets = require(process.env.SHINOBI_ASSETS_MANIFEST);
 
