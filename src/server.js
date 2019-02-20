@@ -1,25 +1,18 @@
 import React from 'react';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
 import App from './App';
+import rootReducer from './reducer';
 
 const assets = require(process.env.SHINOBI_ASSETS_MANIFEST);
 
-const server = express();
-server
-  .disable('x-powered-by')
-  .use(express.static(process.env.SHINOBI_PUBLIC_DIR))
-  .get('/*', (req, res) => {
-    const context = {};
-    const markup = renderToString(<App />);
-
-    if (context.url) {
-      res.redirect(context.url);
-    } else {
-      res.status(200).send(
-        `<!doctype html>
+const renderToHtml = (markup, preloadedState) =>
+  `<!doctype html>
     <html lang="">
-    <head>
+      <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />
         <title>Welcome to Shinobi</title>
@@ -34,12 +27,38 @@ server
             ? `<script src="${assets.client.js}" defer></script>`
             : `<script src="${assets.client.js}" defer crossorigin></script>`
         }
-    </head>
-    <body>
+      </head>
+      <body>
+        <script>
+          // WARNING: See the following for security issues around embedding JSON in HTML:
+          // http://redux.js.org/recipes/ServerRendering.html#security-considerations
+          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+            /</g,
+            '\\u003c'
+          )}
+        </script>
         <div id="root">${markup}</div>
-    </body>
-</html>`,
-      );
+      </body>
+    </html>`;
+
+const server = express();
+server
+  .disable('x-powered-by')
+  .use(express.static(process.env.SHINOBI_PUBLIC_DIR))
+  .get('/*', (req, res) => {
+    const context = {};
+    const store = createStore(rootReducer);
+    const markup = renderToString(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+    );
+    const preloadedState = store.getState();
+
+    if (context.url) {
+      res.redirect(context.url);
+    } else {
+      res.status(200).send(renderToHtml(markup, preloadedState));
     }
   });
 
