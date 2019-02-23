@@ -30,8 +30,8 @@
 
 ```bash
 # Create Shinobi App
-$ npx @enginite/create-app myApp @enginite/shinobi 
-# The above command will generate a shinobi project with the files you need for App development 
+$ npx @enginite/create-app myApp @enginite/shinobi
+# The above command will generate a shinobi project with the files you need for App development
 
 # Go into the repository
 $ cd myApp
@@ -53,3 +53,13 @@ This will generate a build folder with application ready to start at production 
 ##### `node build/server.js`
 
 This will run your built application at port 3000, to run on specified port run with `PORT=8080 node build/server.js`.
+
+### FAQs
+
+_HMR not working..._
+
+Try increasing watchers
+
+```bash
+$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
