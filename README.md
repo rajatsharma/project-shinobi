@@ -56,7 +56,7 @@ This will run your built application at port 3000, to run on specified port run 
 
 ### FAQs
 
-_HMR not working..._
+_HMR not working?..._
 
 Try increasing watchers
 
