@@ -1,6 +1,6 @@
 {
   "name": "@enginite/shinobi",
-  "version": "0.1.0-alpha.6",
+  "version": "0.1.0-alpha.8",
   "description": "React Enginite App with SSR",
   "repository": "git@github.com:rajatsharma/shinobi.git",
   "author": "Rajat Sharma",
@@ -9,24 +9,14 @@
     "shinobi": "./bin/shinobi.js"
   },
   "main": "lib/index.js",
-  "files": [
-    "bin",
-    "lib",
-    "enginite.js"
-  ],
+  "files": ["bin", "lib", "enginite.js"],
   "scripts": {
     "dev": "node scripts/dev.js",
     "wrap": "node scripts/wrap.js",
     "build": "node scripts/build.js",
     "prepublishOnly": "yarn wrap"
   },
-  "keywords": [
-    "react",
-    "webpack",
-    "ssr",
-    "universal",
-    "isomorphic"
-  ],
+  "keywords": ["react", "webpack", "ssr", "universal", "isomorphic"],
   "dependencies": {
     "@babel/core": "7.1.2",
     "assets-webpack-plugin": "3.9.7",
