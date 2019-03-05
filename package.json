@@ -9,14 +9,25 @@
     "shinobi": "./bin/shinobi.js"
   },
   "main": "lib/index.js",
-  "files": ["bin", "lib", "enginite.js"],
+  "files": [
+    "bin",
+    "lib",
+    "enginite.js"
+  ],
   "scripts": {
+    "test": "ava",
     "dev": "node scripts/dev.js",
     "wrap": "node scripts/wrap.js",
     "build": "node scripts/build.js",
     "prepublishOnly": "yarn wrap"
   },
-  "keywords": ["react", "webpack", "ssr", "universal", "isomorphic"],
+  "keywords": [
+    "react",
+    "webpack",
+    "ssr",
+    "universal",
+    "isomorphic"
+  ],
   "dependencies": {
     "@babel/core": "7.1.2",
     "assets-webpack-plugin": "3.9.7",
@@ -60,8 +71,9 @@
     "redux": "4.0.1"
   },
   "devDependencies": {
-    "@enginite/standard": "0.1.0-alpha.1",
+    "@enginite/standard": "1.2.6",
     "@hellpack/eslint-config-hellpack": "2.0.0-alpha.5",
+    "ava": "1.3.1",
     "eslint": "5.14.1",
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-prettier": "3.0.1",

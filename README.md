@@ -15,8 +15,12 @@
 <a href="https://github.com/rajatsharma/enginite">
         <img src="https://img.shields.io/badge/enginite-generator-orange.svg" alt="enginite"/>
   </a>
+  
   <a href="https://github.com/rajatsharma/hellpack">
         <img src="https://img.shields.io/badge/uses-hellpack%20%F0%9F%94%A5-%23414770.svg" alt="hellpack"/>
+  </a>
+  <a href="https://travis-ci.org/rajatsharma/shinobi">
+        <img src="https://travis-ci.org/rajatsharma/shinobi.svg?branch=master" alt="travis"/>
   </a>
 </p>
 
