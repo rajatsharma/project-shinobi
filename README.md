@@ -44,7 +44,7 @@ $ npx @enginite/create-app myApp @enginite/shinobi
 $ cd myApp
 
 # Install dependencies
-$ yarn dev
+$ yarn
 ```
 
 _After your project is generated the following commands will be available_
