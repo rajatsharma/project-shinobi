@@ -22,6 +22,9 @@
   <a href="https://travis-ci.org/rajatsharma/shinobi">
         <img src="https://travis-ci.org/rajatsharma/shinobi.svg?branch=master" alt="travis"/>
   </a>
+  <a href="https://codecov.io/gh/rajatsharma/shinobi">
+  <img src="https://codecov.io/gh/rajatsharma/shinobi/branch/master/graph/badge.svg" />
+</a>
 </p>
 
 ## Pre-requisites

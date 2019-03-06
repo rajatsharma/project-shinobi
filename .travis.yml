@@ -14,6 +14,4 @@ script:
   - yarn test
 
 after_success: 
-  - |
-    npm install --save-dev coveralls@2.10.0
-    npx nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js
+  - yarn coverage
