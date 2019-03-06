@@ -2,7 +2,7 @@
   "name": "@enginite/shinobi",
   "version": "0.1.0-alpha.8",
   "description": "React Enginite App with SSR",
-  "repository": "git@github.com:rajatsharma/shinobi.git",
+  "repository": "rajatsharma/shinobi",
   "author": "Rajat Sharma",
   "license": "MIT",
   "bin": {
@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "test": "nyc --reporter=html --reporter=text ava",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=text-lcov && codecov -F -C coverage.lcov",
     "dev": "node scripts/dev.js",
     "wrap": "node scripts/wrap.js",
     "build": "node scripts/build.js",
@@ -75,6 +75,7 @@
     "@enginite/standard": "1.2.6",
     "@hellpack/eslint-config-hellpack": "2.0.0-alpha.5",
     "ava": "1.3.1",
+    "codecov": "3.2.0",
     "coveralls": "3.0.3",
     "eslint": "5.14.1",
     "eslint-plugin-import": "2.16.0",
