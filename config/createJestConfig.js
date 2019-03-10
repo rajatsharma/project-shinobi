@@ -1,5 +1,3 @@
-
-
 const fs = require('fs');
 const chalk = require('chalk');
 const paths = require('./paths');
@@ -68,13 +66,12 @@ module.exports = (resolve, rootDir) => {
       console.error(
         chalk.red(
           `${'Out of the box, Shinobi only supports overriding ' +
-            'these Jest options:\n\n'}${ 
-            supportedKeys.map(key => chalk.bold(`  \u2022 ${  key}`)).join('\n') 
-            }.\n\n` +
+            'these Jest options:\n\n'}${supportedKeys
+            .map(key => chalk.bold(`  \u2022 ${key}`))
+            .join('\n')}.\n\n` +
             `These options in your package.json Jest configuration ` +
-            `are not currently supported by Shinobi:\n\n${ 
-            unsupportedKeys
-              .map(key => chalk.bold(`  \u2022 ${  key}`))
+            `are not currently supported by Shinobi:\n\n${unsupportedKeys
+              .map(key => chalk.bold(`  \u2022 ${key}`))
               .join('\n')}`,
         ),
       );

@@ -1,5 +1,3 @@
-
-
 function runPlugin(plugin, config, { target, dev }, webpack) {
   if (typeof plugin === 'string') {
     // Apply the plugin with default options if passing only a string
