@@ -34,7 +34,7 @@ const renderToHtml = (markup, preloadedState) =>
           // http://redux.js.org/recipes/ServerRendering.html#security-considerations
           window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
             /</g,
-            '\\u003c'
+            '\\u003c',
           )}
         </script>
         <div id="root">${markup}</div>
