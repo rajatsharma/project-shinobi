@@ -8,13 +8,13 @@ const StartServerPlugin = require('start-server-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const safePostCssParser = require('postcss-safe-parser');
+const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
+const WebpackBar = require('webpackbar');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const paths = require('./paths');
 const runPlugin = require('./runPlugin');
-const getClientEnv = require('./env').getClientEnv;
-const nodePath = require('./env').nodePath;
-const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
-const WebpackBar = require('webpackbar');
+const { getClientEnv } = require('./env');
+const { nodePath } = require('./env');
 
 const postCssOptions = {
   ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
