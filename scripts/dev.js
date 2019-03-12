@@ -1,10 +1,9 @@
 #! /usr/bin/env node
-'use strict';
 
 process.env.NODE_ENV = 'development';
 const fs = require('fs-extra');
 const webpack = require('webpack');
-const devServer = require('webpack-dev-server');
+const DevServer = require('webpack-dev-server');
 const printErrors = require('razzle-dev-utils/printErrors');
 const clearConsole = require('react-dev-utils/clearConsole');
 const logger = require('razzle-dev-utils/logger');
@@ -21,6 +20,18 @@ process.env.INSPECT_BRK =
   process.argv.find(arg => arg.match(/--inspect-brk(=|$)/)) || '';
 process.env.INSPECT =
   process.argv.find(arg => arg.match(/--inspect(=|$)/)) || '';
+
+// Webpack compile in a try-catch
+function compile(config) {
+  let compiler;
+  try {
+    compiler = webpack(config);
+  } catch (e) {
+    printErrors('Failed to compile.', [e]);
+    process.exit(1);
+  }
+  return compiler;
+}
 
 function main() {
   // Optimistically, we make the console look exactly like the output of our
@@ -84,11 +95,11 @@ function main() {
 
   // Create a new instance of Webpack-dev-server for our client assets.
   // This will actually run on a different port than the users app.
-  const clientDevServer = new devServer(clientCompiler, clientConfig.devServer);
+  const clientDevServer = new DevServer(clientCompiler, clientConfig.devServer);
 
   // Start Webpack-dev-server
   clientDevServer.listen(
-    (process.env.PORT && parseInt(process.env.PORT) + 1) ||
+    (process.env.PORT && parseInt(process.env.PORT, 10) + 1) ||
       shinobi.port ||
       3001,
     err => {
@@ -97,18 +108,6 @@ function main() {
       }
     },
   );
-}
-
-// Webpack compile in a try-catch
-function compile(config) {
-  let compiler;
-  try {
-    compiler = webpack(config);
-  } catch (e) {
-    printErrors('Failed to compile.', [e]);
-    process.exit(1);
-  }
-  return compiler;
 }
 
 setPorts()
