@@ -19,8 +19,8 @@ const printErrors = require('razzle-dev-utils/printErrors');
 const logger = require('razzle-dev-utils/logger');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
-const createNodeConfig = require('../config/webpack.config.node');
-const createWebConfig = require('../config/webpack.config.web');
+const createNodeConfig = require('../config/node.webpack.config');
+const createWebConfig = require('../config/web.webpack.config');
 const paths = require('../config/paths');
 
 const measureFileSizesBeforeBuild =

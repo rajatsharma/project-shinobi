@@ -9,8 +9,8 @@ const clearConsole = require('react-dev-utils/clearConsole');
 const logger = require('razzle-dev-utils/logger');
 const setPorts = require('razzle-dev-utils/setPorts');
 const paths = require('../config/paths');
-const createNodeConfig = require('../config/webpack.config.node');
-const createWebConfig = require('../config/webpack.config.web');
+const createNodeConfig = require('../config/node.webpack.config');
+const createWebConfig = require('../config/web.webpack.config');
 
 process.noDeprecation = true; // turns off that loadQuery clutter.
 
