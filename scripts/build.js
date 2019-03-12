@@ -1,5 +1,4 @@
 #! /usr/bin/env node
-'use strict';
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.NODE_ENV = 'production';
 
@@ -27,6 +26,131 @@ const paths = require('../config/paths');
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
+
+// Helper function to copy public directory to build/public
+function copyPublicFolder() {
+  fs.copySync(paths.appPublic, paths.appBuildPublic, {
+    dereference: true,
+    filter: file => file !== paths.appHtml,
+  });
+}
+
+// Wrap webpack compile in a try catch.
+function compile(config, cb) {
+  let compiler;
+  try {
+    compiler = webpack(config);
+  } catch (e) {
+    printErrors('Failed to compile.', [e]);
+    process.exit(1);
+  }
+  compiler.run((err, stats) => {
+    cb(err, stats);
+  });
+}
+
+function build(previousFileSizes) {
+  // Check if shinobi.config.js exists
+  let shinobi = {};
+  try {
+    shinobi = require(paths.appShinobiConfig);
+    /* eslint-disable no-empty */
+  } catch (e) {}
+  /* eslint-enable */
+
+  try {
+    shinobi = require(paths.appWebpackConfig);
+    /* eslint-disable no-empty */
+  } catch (e) {}
+  /* eslint-enable */
+
+  if (shinobi.clearConsole === false || !!shinobi.host || !!shinobi.port) {
+    logger.warn(`Specifying options \`port\`, \`host\`, and \`clearConsole\` in shinobi.config.js has been deprecated.
+Please use a .env file instead.
+
+${shinobi.host !== 'localhost' && `HOST=${shinobi.host}`}
+${shinobi.port !== '3000' && `PORT=${shinobi.port}`}
+`);
+  }
+
+  // Create our production webpack configurations and pass in shinobi options.
+  const clientConfig = createWebConfig('prod', shinobi, webpack);
+  const serverConfig = createNodeConfig('prod', shinobi, webpack);
+
+  process.noDeprecation = true; // turns off that loadQuery clutter.
+
+  console.log('Creating an optimized production build...');
+  console.log('Compiling client...');
+  // First compile the client. We need it to properly output assets.json (asset
+  // manifest file with the correct hashes on file names BEFORE we can start
+  // the server compiler.
+  return new Promise((resolve, reject) => {
+    compile(clientConfig, (err, clientStats) => {
+      if (err) {
+        return reject(err);
+      }
+      const clientMessages = formatWebpackMessages(
+        clientStats.toJson({}, true),
+      );
+      if (clientMessages.errors.length) {
+        return reject(new Error(clientMessages.errors.join('\n\n')));
+      }
+      if (
+        process.env.CI &&
+        (typeof process.env.CI !== 'string' ||
+          process.env.CI.toLowerCase() !== 'false') &&
+        clientMessages.warnings.length
+      ) {
+        console.log(
+          chalk.yellow(
+            '\nTreating warnings as errors because process.env.CI = true.\n' +
+              'Most CI servers set it automatically.\n',
+          ),
+        );
+        return reject(new Error(clientMessages.warnings.join('\n\n')));
+      }
+
+      console.log(chalk.green('Compiled client successfully.'));
+      console.log('Compiling server...');
+      compile(serverConfig, (servererr, serverStats) => {
+        if (servererr) {
+          reject(servererr);
+        }
+        const serverMessages = formatWebpackMessages(
+          serverStats.toJson({}, true),
+        );
+        if (serverMessages.errors.length) {
+          return reject(new Error(serverMessages.errors.join('\n\n')));
+        }
+        if (
+          process.env.CI &&
+          (typeof process.env.CI !== 'string' ||
+            process.env.CI.toLowerCase() !== 'false') &&
+          serverMessages.warnings.length
+        ) {
+          console.log(
+            chalk.yellow(
+              '\nTreating warnings as errors because process.env.CI = true.\n' +
+                'Most CI servers set it automatically.\n',
+            ),
+          );
+          return reject(new Error(serverMessages.warnings.join('\n\n')));
+        }
+        console.log(chalk.green('Compiled server successfully.'));
+        return resolve({
+          stats: clientStats,
+          previousFileSizes,
+          warnings: Object.assign(
+            {},
+            clientMessages.warnings,
+            serverMessages.warnings,
+          ),
+        });
+      });
+      return null;
+    });
+  });
+}
 
 // First, read the current file sizes in build directory.
 // This lets us display how much they changed later.
@@ -70,127 +194,3 @@ measureFileSizesBeforeBuild(paths.appBuildPublic)
       process.exit(1);
     },
   );
-
-function build(previousFileSizes) {
-  // Check if shinobi.config.js exists
-  let shinobi = {};
-  try {
-    shinobi = require(paths.appShinobiConfig);
-    /* eslint-disable no-empty */
-  } catch (e) {}
-  /* eslint-enable */
-
-  try {
-    shinobi = require(paths.appWebpackConfig);
-    /* eslint-disable no-empty */
-  } catch (e) {}
-  /* eslint-enable */
-
-  if (shinobi.clearConsole === false || !!shinobi.host || !!shinobi.port) {
-    logger.warn(`Specifying options \`port\`, \`host\`, and \`clearConsole\` in shinobi.config.js has been deprecated.
-Please use a .env file instead.
-
-${shinobi.host !== 'localhost' && `HOST=${shinobi.host}`}
-${shinobi.port !== '3000' && `PORT=${shinobi.port}`}
-`);
-  }
-
-  // Create our production webpack configurations and pass in shinobi options.
-  const clientConfig = createWebConfig('prod', shinobi, webpack);
-  const serverConfig = createNodeConfig('prod', shinobi, webpack);
-
-  process.noDeprecation = true; // turns off that loadQuery clutter.
-
-  console.log('Creating an optimized production build...');
-  console.log('Compiling client...');
-  // First compile the client. We need it to properly output assets.json (asset
-  // manifest file with the correct hashes on file names BEFORE we can start
-  // the server compiler.
-  return new Promise((resolve, reject) => {
-    compile(clientConfig, (err, clientStats) => {
-      if (err) {
-        reject(err);
-      }
-      const clientMessages = formatWebpackMessages(
-        clientStats.toJson({}, true),
-      );
-      if (clientMessages.errors.length) {
-        return reject(new Error(clientMessages.errors.join('\n\n')));
-      }
-      if (
-        process.env.CI &&
-        (typeof process.env.CI !== 'string' ||
-          process.env.CI.toLowerCase() !== 'false') &&
-        clientMessages.warnings.length
-      ) {
-        console.log(
-          chalk.yellow(
-            '\nTreating warnings as errors because process.env.CI = true.\n' +
-              'Most CI servers set it automatically.\n',
-          ),
-        );
-        return reject(new Error(clientMessages.warnings.join('\n\n')));
-      }
-
-      console.log(chalk.green('Compiled client successfully.'));
-      console.log('Compiling server...');
-      compile(serverConfig, (err, serverStats) => {
-        if (err) {
-          reject(err);
-        }
-        const serverMessages = formatWebpackMessages(
-          serverStats.toJson({}, true),
-        );
-        if (serverMessages.errors.length) {
-          return reject(new Error(serverMessages.errors.join('\n\n')));
-        }
-        if (
-          process.env.CI &&
-          (typeof process.env.CI !== 'string' ||
-            process.env.CI.toLowerCase() !== 'false') &&
-          serverMessages.warnings.length
-        ) {
-          console.log(
-            chalk.yellow(
-              '\nTreating warnings as errors because process.env.CI = true.\n' +
-                'Most CI servers set it automatically.\n',
-            ),
-          );
-          return reject(new Error(serverMessages.warnings.join('\n\n')));
-        }
-        console.log(chalk.green('Compiled server successfully.'));
-        return resolve({
-          stats: clientStats,
-          previousFileSizes,
-          warnings: Object.assign(
-            {},
-            clientMessages.warnings,
-            serverMessages.warnings,
-          ),
-        });
-      });
-    });
-  });
-}
-
-// Helper function to copy public directory to build/public
-function copyPublicFolder() {
-  fs.copySync(paths.appPublic, paths.appBuildPublic, {
-    dereference: true,
-    filter: file => file !== paths.appHtml,
-  });
-}
-
-// Wrap webpack compile in a try catch.
-function compile(config, cb) {
-  let compiler;
-  try {
-    compiler = webpack(config);
-  } catch (e) {
-    printErrors('Failed to compile.', [e]);
-    process.exit(1);
-  }
-  compiler.run((err, stats) => {
-    cb(err, stats);
-  });
-}

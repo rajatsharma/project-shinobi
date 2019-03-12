@@ -8,6 +8,9 @@
   ],
   "rules": {
     "global-require": 0,
-    "no-console": 0
+    "no-console": 0,
+    "prefer-template": 0,
+    "prefer-destructuring": 0,
+    "import/no-dynamic-require": 0
   }
 }
