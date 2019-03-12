@@ -12,7 +12,6 @@ const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 const WebpackBar = require('webpackbar');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const paths = require('./paths');
-const runPlugin = require('./runPlugin');
 const { getClientEnv } = require('./env');
 const { nodePath } = require('./env');
 
@@ -199,18 +198,12 @@ module.exports = (
             ? [
                 {
                   loader: require.resolve('css-loader/locals'),
-                  options: IS_DEV
-                    ? {
-                        sourceMap: true,
-                        importLoaders: 1,
-                        modules: false,
-                      }
-                    : {
-                        sourceMap: false,
-                        importLoaders: 1,
-                        modules: false,
-                        minimize: true,
-                      },
+                  options: {
+                    sourceMap: IS_DEV,
+                    importLoaders: 1,
+                    modules: false,
+                    minimize: !IS_DEV,
+                  },
                 },
               ]
             : [
@@ -219,47 +212,31 @@ module.exports = (
                   : MiniCssExtractPlugin.loader,
                 {
                   loader: require.resolve('css-loader'),
-                  options: IS_DEV
-                    ? {
-                        sourceMap: true,
-                        importLoaders: 1,
-                        modules: false,
-                      }
-                    : {
-                        sourceMap: false,
-                        importLoaders: 1,
-                        modules: false,
-                        minimize: true,
-                      },
+                  options: {
+                    sourceMap: IS_DEV,
+                    importLoaders: 1,
+                    modules: false,
+                    minimize: !IS_DEV,
+                  },
                 },
                 require.resolve('resolve-url-loader'),
                 {
                   loader: require.resolve('postcss-loader'),
                   options: Object.assign(
                     {},
-                    IS_DEV
-                      ? {
-                          sourceMap: true,
-                          ident: 'postcss',
-                        }
-                      : {
-                          sourceMap: false,
-                          ident: 'postcss',
-                        },
+                    {
+                      sourceMap: IS_DEV,
+                      ident: 'postcss',
+                    },
                     postCssOptions,
                   ),
                 },
                 {
                   loader: require.resolve('sass-loader'),
-                  options: IS_DEV
-                    ? {
-                        sourceMap: true,
-                        includePaths: [paths.appNodeModules],
-                      }
-                    : {
-                        sourceMap: false,
-                        includePaths: [paths.appNodeModules],
-                      },
+                  options: {
+                    sourceMap: IS_DEV,
+                    includePaths: [paths.appNodeModules],
+                  },
                 },
               ],
         },

@@ -2,6 +2,12 @@
   "extends": "@hellpack/eslint-config-hellpack",
   "plugins": [
     "eslint-plugin-prettier",
-    "eslint-plugin-import"
-  ]
+    "eslint-plugin-import",
+    "eslint-plugin-react",
+    "eslint-plugin-jsx-a11y"
+  ],
+  "rules": {
+    "global-require": 0,
+    "no-console": 0
+  }
 }

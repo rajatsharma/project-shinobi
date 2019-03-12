@@ -4,13 +4,14 @@
 process.env.NODE_ENV = 'development';
 const fs = require('fs-extra');
 const webpack = require('webpack');
-const paths = require('../config/paths');
-const createConfig = require('../config/createConfig');
 const devServer = require('webpack-dev-server');
 const printErrors = require('razzle-dev-utils/printErrors');
 const clearConsole = require('react-dev-utils/clearConsole');
 const logger = require('razzle-dev-utils/logger');
 const setPorts = require('razzle-dev-utils/setPorts');
+const paths = require('../config/paths');
+const createNodeConfig = require('../config/webpack.config.node');
+const createWebConfig = require('../config/webpack.config.web');
 
 process.noDeprecation = true; // turns off that loadQuery clutter.
 
@@ -54,8 +55,8 @@ function main() {
 
   // Create dev configs using our config factory, passing in shinobi file as
   // options.
-  let clientConfig = createConfig('web', 'dev', shinobi, webpack);
-  let serverConfig = createConfig('node', 'dev', shinobi, webpack);
+  const clientConfig = createWebConfig('dev', shinobi, webpack);
+  const serverConfig = createNodeConfig('dev', shinobi, webpack);
 
   // Compile our assets with webpack
   const clientCompiler = compile(clientConfig);

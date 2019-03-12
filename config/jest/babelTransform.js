@@ -1,5 +1,3 @@
-
-
 const babelJest = require('babel-jest');
 const fs = require('fs-extra');
 const paths = require('../paths');

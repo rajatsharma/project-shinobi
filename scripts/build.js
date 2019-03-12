@@ -16,12 +16,14 @@ require('../config/env');
 const webpack = require('webpack');
 const fs = require('fs-extra');
 const chalk = require('chalk');
-const paths = require('../config/paths');
-const createConfig = require('../config/createConfig');
 const printErrors = require('razzle-dev-utils/printErrors');
 const logger = require('razzle-dev-utils/logger');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
+const createNodeConfig = require('../config/webpack.config.node');
+const createWebConfig = require('../config/webpack.config.web');
+const paths = require('../config/paths');
+
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
@@ -94,8 +96,8 @@ ${shinobi.port !== '3000' && `PORT=${shinobi.port}`}
   }
 
   // Create our production webpack configurations and pass in shinobi options.
-  const clientConfig = createConfig('web', 'prod', shinobi, webpack);
-  const serverConfig = createConfig('node', 'prod', shinobi, webpack);
+  const clientConfig = createWebConfig('prod', shinobi, webpack);
+  const serverConfig = createNodeConfig('prod', shinobi, webpack);
 
   process.noDeprecation = true; // turns off that loadQuery clutter.
 
