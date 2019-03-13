@@ -66,8 +66,8 @@ function main() {
 
   // Create dev configs using our config factory, passing in shinobi file as
   // options.
-  const clientConfig = createWebConfig('dev', shinobi, webpack);
-  const serverConfig = createNodeConfig('dev', shinobi, webpack);
+  const clientConfig = createWebConfig('development', shinobi, webpack);
+  const serverConfig = createNodeConfig('development', shinobi, webpack);
 
   // Compile our assets with webpack
   const clientCompiler = compile(clientConfig);

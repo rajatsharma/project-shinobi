@@ -74,8 +74,8 @@ ${shinobi.port !== '3000' && `PORT=${shinobi.port}`}
   }
 
   // Create our production webpack configurations and pass in shinobi options.
-  const clientConfig = createWebConfig('prod', shinobi, webpack);
-  const serverConfig = createNodeConfig('prod', shinobi, webpack);
+  const clientConfig = createWebConfig('production', shinobi, webpack);
+  const serverConfig = createNodeConfig('production', shinobi, webpack);
 
   process.noDeprecation = true; // turns off that loadQuery clutter.
 

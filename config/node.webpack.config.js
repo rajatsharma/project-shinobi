@@ -11,7 +11,7 @@ const { nodePath } = require('./env');
 
 // This is the Webpack configuration factory. It's the juice!
 module.exports = (
-  env = 'dev',
+  env = 'development',
   {
     clearConsole = true,
     host = 'localhost',
@@ -62,8 +62,8 @@ module.exports = (
   }
 
   // Define some useful shorthands.
-  const IS_PROD = env === 'prod';
-  const IS_DEV = env === 'dev';
+  const IS_PROD = env === 'production';
+  const IS_DEV = env === 'development';
   process.env.NODE_ENV = IS_PROD ? 'production' : 'development';
 
   const dotenv = getClientEnv('node', { clearConsole, host, port });
