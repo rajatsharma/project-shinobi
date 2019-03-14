@@ -11,17 +11,7 @@ const { getClientEnv } = require('./env');
 const { nodePath } = require('./env');
 
 // This is the Webpack configuration factory. It's the juice!
-module.exports = (
-  env = 'development',
-  {
-    clearConsole = true,
-    host = 'localhost',
-    port = 3000,
-    modify,
-    modifyBabelOptions,
-  },
-  webpackObject,
-) => {
+module.exports = (env = 'development') => {
   // First we check to see if the user has a custom .babelrc file, otherwise
   // we just use babel-preset-razzle.
   const hasBabelRc = fs.existsSync(paths.appBabelRc);
@@ -45,9 +35,7 @@ module.exports = (
   }
 
   // Allow app to override babel options
-  const babelOptions = modifyBabelOptions
-    ? modifyBabelOptions(mainBabelOptions)
-    : mainBabelOptions;
+  const babelOptions = mainBabelOptions;
 
   if (hasBabelRc && babelOptions.babelrc) {
     console.log('Using .babelrc defined in your app root');
@@ -67,7 +55,7 @@ module.exports = (
   const IS_DEV = env === 'development';
   process.env.NODE_ENV = IS_PROD ? 'production' : 'development';
 
-  const dotenv = getClientEnv('node', { clearConsole, host, port });
+  const dotenv = getClientEnv('node', {});
 
   const devServerPort = parseInt(dotenv.raw.PORT, 10) + 1;
   // VMs, Docker containers might not be available at localhost:3001. CLIENT_PUBLIC_PATH can override.
@@ -76,7 +64,7 @@ module.exports = (
     (IS_DEV ? `http://${dotenv.raw.HOST}:${devServerPort}/` : '/');
 
   // This is our base webpack config.
-  let config = {
+  const config = {
     // Set webpack mode:
     mode: IS_DEV ? 'development' : 'production',
     // Set webpack context to the current command's directory
@@ -307,12 +295,6 @@ module.exports = (
         name: 'server',
       }),
     ];
-  }
-
-  // Check if webpack.config has a modify function. If it does, call it on the
-  // configs we created.
-  if (modify) {
-    config = modify(config, { target: 'node', dev: IS_DEV }, webpackObject);
   }
 
   return config;
