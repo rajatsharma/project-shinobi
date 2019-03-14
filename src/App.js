@@ -5,33 +5,13 @@ import PropTypes from 'prop-types';
 function App({ counter, increment, decrement }) {
   return (
     <>
-      <button onClick={increment}>+</button>
+      <button onClick={increment} type="button">
+        +
+      </button>
       <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-      <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-      <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-      <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-      <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-      <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-      <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-      <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
-      <div>{JSON.stringify(counter)}</div>
-      <button onClick={decrement}>-</button>
+      <button onClick={decrement} type="button">
+        -
+      </button>
     </>
   );
 }

@@ -5,7 +5,6 @@ const fs = require('fs-extra');
 const webpack = require('webpack');
 const DevServer = require('webpack-dev-server');
 const printErrors = require('razzle-dev-utils/printErrors');
-const clearConsole = require('react-dev-utils/clearConsole');
 const logger = require('razzle-dev-utils/logger');
 const setPorts = require('razzle-dev-utils/setPorts');
 const paths = require('../config/paths');
@@ -38,36 +37,14 @@ function main() {
   // FriendlyErrorsPlugin during compilation, so the user has immediate feedback.
   // clearConsole();
   logger.start('Compiling...');
-  let shinobi = {};
-
-  // Check for webpack.config.js file
-  if (fs.existsSync(paths.appShinobiConfig)) {
-    try {
-      shinobi = require(paths.appShinobiConfig);
-    } catch (e) {
-      clearConsole();
-      logger.error('Invalid shinobi.config.js file.', e);
-      process.exit(1);
-    }
-  }
-
-  if (fs.existsSync(paths.appWebpackConfig)) {
-    try {
-      shinobi = require(paths.appWebpackConfig);
-    } catch (e) {
-      clearConsole();
-      logger.error('Invalid webpack.config.js file.', e);
-      process.exit(1);
-    }
-  }
 
   // Delete assets.json to always have a manifest up to date
   fs.removeSync(paths.appManifest);
 
   // Create dev configs using our config factory, passing in shinobi file as
   // options.
-  const clientConfig = createWebConfig('development', shinobi, webpack);
-  const serverConfig = createNodeConfig('development', shinobi, webpack);
+  const clientConfig = createWebConfig('development', {}, webpack);
+  const serverConfig = createNodeConfig('development', {}, webpack);
 
   // Compile our assets with webpack
   const clientCompiler = compile(clientConfig);
@@ -99,9 +76,7 @@ function main() {
 
   // Start Webpack-dev-server
   clientDevServer.listen(
-    (process.env.PORT && parseInt(process.env.PORT, 10) + 1) ||
-      shinobi.port ||
-      3001,
+    (process.env.PORT && parseInt(process.env.PORT, 10) + 1) || 3001,
     err => {
       if (err) {
         logger.error(err);

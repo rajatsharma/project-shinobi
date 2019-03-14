@@ -1,5 +1,6 @@
 const fs = require('fs-extra');
 const path = require('path');
+const OverrideConfigWebpackPlugin = require('@enginite/override-config-webpack-plugin');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
@@ -8,7 +9,6 @@ const WebpackBar = require('webpackbar');
 const paths = require('./paths');
 const { getClientEnv } = require('./env');
 const { nodePath } = require('./env');
-const FileSizeReporterPlugin = require('./FileSizeReporterPlugin');
 
 // This is the Webpack configuration factory. It's the juice!
 module.exports = (
@@ -254,7 +254,10 @@ module.exports = (
   };
   // Add some plugins...
   config.plugins = [
-    new FileSizeReporterPlugin(),
+    new OverrideConfigWebpackPlugin(
+      { silent: true },
+      { dev: IS_DEV, target: 'web' },
+    ),
     // We define environment variables that can be accessed globally in our
     new webpack.DefinePlugin(dotenv.stringified),
     // Prevent creating multiple chunks for the server

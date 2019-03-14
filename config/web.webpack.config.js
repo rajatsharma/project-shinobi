@@ -3,12 +3,14 @@ const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
+const OverrideConfigWebpackPlugin = require('@enginite/override-config-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const WebpackBar = require('webpackbar');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 const paths = require('./paths');
 const { getClientEnv } = require('./env');
 const { nodePath } = require('./env');
@@ -311,6 +313,10 @@ module.exports = (
       path: paths.appBuild,
       filename: 'assets.json',
     }),
+    new OverrideConfigWebpackPlugin(
+      { silent: true },
+      { dev: IS_DEV, target: 'web' },
+    ),
     // Maybe we should move to this???
     // new ManifestPlugin({
     //   path: paths.appBuild,

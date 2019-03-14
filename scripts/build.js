@@ -16,7 +16,6 @@ const webpack = require('webpack');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const printErrors = require('razzle-dev-utils/printErrors');
-const logger = require('razzle-dev-utils/logger');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const createNodeConfig = require('../config/node.webpack.config');
@@ -50,32 +49,9 @@ function compile(config, cb) {
 }
 
 function build(previousFileSizes) {
-  // Check if shinobi.config.js exists
-  let shinobi = {};
-  try {
-    shinobi = require(paths.appShinobiConfig);
-    /* eslint-disable no-empty */
-  } catch (e) {}
-  /* eslint-enable */
-
-  try {
-    shinobi = require(paths.appWebpackConfig);
-    /* eslint-disable no-empty */
-  } catch (e) {}
-  /* eslint-enable */
-
-  if (shinobi.clearConsole === false || !!shinobi.host || !!shinobi.port) {
-    logger.warn(`Specifying options \`port\`, \`host\`, and \`clearConsole\` in shinobi.config.js has been deprecated.
-Please use a .env file instead.
-
-${shinobi.host !== 'localhost' && `HOST=${shinobi.host}`}
-${shinobi.port !== '3000' && `PORT=${shinobi.port}`}
-`);
-  }
-
   // Create our production webpack configurations and pass in shinobi options.
-  const clientConfig = createWebConfig('production', shinobi, webpack);
-  const serverConfig = createNodeConfig('production', shinobi, webpack);
+  const clientConfig = createWebConfig('production', {}, webpack);
+  const serverConfig = createNodeConfig('production', {}, webpack);
 
   process.noDeprecation = true; // turns off that loadQuery clutter.
 
