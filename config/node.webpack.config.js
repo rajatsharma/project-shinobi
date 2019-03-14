@@ -8,6 +8,7 @@ const WebpackBar = require('webpackbar');
 const paths = require('./paths');
 const { getClientEnv } = require('./env');
 const { nodePath } = require('./env');
+const FileSizeReporterPlugin = require('./FileSizeReporterPlugin');
 
 // This is the Webpack configuration factory. It's the juice!
 module.exports = (
@@ -253,6 +254,7 @@ module.exports = (
   };
   // Add some plugins...
   config.plugins = [
+    new FileSizeReporterPlugin(),
     // We define environment variables that can be accessed globally in our
     new webpack.DefinePlugin(dotenv.stringified),
     // Prevent creating multiple chunks for the server

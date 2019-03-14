@@ -8,6 +8,30 @@ function App({ counter, increment, decrement }) {
       <button onClick={increment}>+</button>
       <div>{JSON.stringify(counter)}</div>
       <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+      <div>{JSON.stringify(counter)}</div>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+      <div>{JSON.stringify(counter)}</div>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+      <div>{JSON.stringify(counter)}</div>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+      <div>{JSON.stringify(counter)}</div>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+      <div>{JSON.stringify(counter)}</div>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+      <div>{JSON.stringify(counter)}</div>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+      <div>{JSON.stringify(counter)}</div>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+      <div>{JSON.stringify(counter)}</div>
+      <button onClick={decrement}>-</button>
     </>
   );
 }
