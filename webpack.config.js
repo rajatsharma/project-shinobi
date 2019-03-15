@@ -1,5 +1,9 @@
 /* eslint-disable */
-module.exports = (config, _options) => {
+module.exports = (config, _options, webpack) => {
   config.devtool = 'none';
-  return config;
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      __WORD__: JSON.stringify('hi'),
+    }),
+  );
 };

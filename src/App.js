@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+console.log(__WORD__);
+
 function App({ counter, increment, decrement }) {
   return (
     <>

@@ -9,11 +9,7 @@
     "shinobi": "./bin/shinobi.js"
   },
   "main": "lib/index.js",
-  "files": [
-    "bin",
-    "lib",
-    "enginite.js"
-  ],
+  "files": ["bin", "lib", "enginite.js"],
   "scripts": {
     "test": "nyc --reporter=html --reporter=text ava",
     "coverage": "nyc report --reporter=text-lcov && codecov -F -C coverage.lcov",
@@ -23,16 +19,10 @@
     "prepublishOnly": "yarn wrap",
     "release": "np"
   },
-  "keywords": [
-    "react",
-    "webpack",
-    "ssr",
-    "universal",
-    "isomorphic"
-  ],
+  "keywords": ["react", "webpack", "ssr", "universal", "isomorphic"],
   "dependencies": {
     "@babel/core": "7.1.2",
-    "@enginite/override-config-webpack-plugin": "1.2.7",
+    "@enginite/override-config-webpack-plugin": "1.2.8",
     "assets-webpack-plugin": "3.9.7",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
