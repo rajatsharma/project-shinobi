@@ -1,6 +1,6 @@
 {
   "name": "@enginite/shinobi",
-  "version": "0.1.0-alpha.8",
+  "version": "0.1.0-alpha.9",
   "description": "React Enginite App with SSR",
   "repository": "rajatsharma/shinobi",
   "author": "Rajat Sharma",
@@ -9,7 +9,11 @@
     "shinobi": "./bin/shinobi.js"
   },
   "main": "lib/index.js",
-  "files": ["bin", "lib", "enginite.js"],
+  "files": [
+    "bin",
+    "lib",
+    "enginite.js"
+  ],
   "scripts": {
     "test": "nyc --reporter=html --reporter=text ava",
     "coverage": "nyc report --reporter=text-lcov && codecov -F -C coverage.lcov",
@@ -19,7 +23,13 @@
     "prepublishOnly": "yarn wrap",
     "release": "np"
   },
-  "keywords": ["react", "webpack", "ssr", "universal", "isomorphic"],
+  "keywords": [
+    "react",
+    "webpack",
+    "ssr",
+    "universal",
+    "isomorphic"
+  ],
   "dependencies": {
     "@babel/core": "7.1.2",
     "@enginite/override-config-webpack-plugin": "1.2.7",
