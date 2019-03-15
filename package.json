@@ -16,7 +16,8 @@
     "dev": "node scripts/dev.js",
     "wrap": "node scripts/wrap.js",
     "build": "node scripts/build.js",
-    "prepublishOnly": "yarn wrap"
+    "prepublishOnly": "yarn wrap",
+    "release": "np"
   },
   "keywords": ["react", "webpack", "ssr", "universal", "isomorphic"],
   "dependencies": {
@@ -78,6 +79,7 @@
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.12.4",
     "express": "4.16.4",
+    "np": "4.0.2",
     "nyc": "13.3.0",
     "prettier": "1.16.4",
     "react": "16.8.2",
