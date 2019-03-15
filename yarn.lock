@@ -829,10 +829,10 @@
   resolved "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@enginite/override-config-webpack-plugin@1.2.7":
-  version "1.2.7"
-  resolved "https://registry.npmjs.org/@enginite/override-config-webpack-plugin/-/override-config-webpack-plugin-1.2.7.tgz#1ccc40d738018893348ae20ddc84449c5eeda59b"
-  integrity sha512-Jh6MSLlZwErrfezb14d3nFkca10BVWA6J4kprvy6PYSLvX2qHawkgn0HiV5WIbhCFu/qlm9SToemZfPCPzySlQ==
+"@enginite/override-config-webpack-plugin@1.2.8":
+  version "1.2.8"
+  resolved "https://registry.npmjs.org/@enginite/override-config-webpack-plugin/-/override-config-webpack-plugin-1.2.8.tgz#53316c7cb1cdd296dea6f46ba5e57dfe319e8547"
+  integrity sha512-K/Yt1V8dQARYdJwirsV8NM5f5T8ypy394OqMbcX+gXrIdu0uzChjF9/5vQCnxnxchwiOGUhfLT2it+leM3RZDA==
   dependencies:
     fs-extra "^7.0.1"
 
