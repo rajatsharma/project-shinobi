@@ -245,7 +245,7 @@ module.exports = (env = 'development') => {
   config.plugins = [
     new OverrideConfigWebpackPlugin(
       { silent: true },
-      { dev: IS_DEV, target: 'web' },
+      { dev: IS_DEV, target: 'node' },
       webpack,
     ),
     // We define environment variables that can be accessed globally in our
