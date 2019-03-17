@@ -4,8 +4,7 @@ process.env.NODE_ENV = 'development';
 const fs = require('fs-extra');
 const webpack = require('webpack');
 const DevServer = require('webpack-dev-server');
-const printErrors = require('razzle-dev-utils/printErrors');
-const logger = require('razzle-dev-utils/logger');
+const logger = require('@enginite/logger');
 const setPorts = require('razzle-dev-utils/setPorts');
 const paths = require('../config/paths');
 const createNodeConfig = require('../config/node.webpack.config');
@@ -26,7 +25,7 @@ function compile(config) {
   try {
     compiler = webpack(config);
   } catch (e) {
-    printErrors('Failed to compile.', [e]);
+    logger.errorSummary('Failed to compile.', e);
     process.exit(1);
   }
   return compiler;
@@ -76,7 +75,7 @@ function main() {
 
   // Start Webpack-dev-server
   clientDevServer.listen(
-    (process.env.PORT && parseInt(process.env.PORT, 10) + 1) || 3001,
+    (process.env.PORT && parseInt(process.env.PORT, 10) + 1) || 101,
     err => {
       if (err) {
         logger.error(err);

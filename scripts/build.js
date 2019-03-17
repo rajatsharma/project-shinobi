@@ -15,7 +15,7 @@ require('../config/env');
 const webpack = require('webpack');
 const fs = require('fs-extra');
 const chalk = require('chalk');
-const printErrors = require('razzle-dev-utils/printErrors');
+const logger = require('@enginite/logger');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const createNodeConfig = require('../config/node.webpack.config');
@@ -40,7 +40,7 @@ function compile(config, cb) {
   try {
     compiler = webpack(config);
   } catch (e) {
-    printErrors('Failed to compile.', [e]);
+    logger.errorSummary('Failed to compile.', [e]);
     process.exit(1);
   }
   compiler.run((err, stats) => {
