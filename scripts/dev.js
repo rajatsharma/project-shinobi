@@ -75,7 +75,7 @@ function main() {
 
   // Start Webpack-dev-server
   clientDevServer.listen(
-    (process.env.PORT && parseInt(process.env.PORT, 10) + 1) || 101,
+    (process.env.PORT && parseInt(process.env.PORT, 10) + 1) || 3001,
     err => {
       if (err) {
         logger.error(err);
