@@ -31,6 +31,7 @@
     "isomorphic"
   ],
   "dependencies": {
+    "@ahmadnassri/spawn-promise": "1.2.0",
     "@babel/core": "7.1.2",
     "@enginite/logger": "1.2.12-alpha.0",
     "@enginite/override-config-webpack-plugin": "1.2.8",

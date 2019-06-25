@@ -7,6 +7,6 @@ module.exports = {
     'config/web.webpack.config.js',
     'config/webpack.js',
   ],
-  packageScripts: ['dev', 'build'],
+  packageScripts: ['dev', 'build', 'eject'],
   bin: 'shinobi',
 };

@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+"@ahmadnassri/error@^1.1.0":
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/@ahmadnassri/error/-/error-1.1.1.tgz#c7bb08fb9b03bd51ceed8d953adef797d669f557"
+  integrity sha512-MfAcCl5LXulpEtjuL018A8xaXYTYXpT5W24K6yHzZinbCl1ohAAuQMTpmPn1JcOzhPCxFonDF0PNk7nvoh8hzQ==
+
+"@ahmadnassri/spawn-promise@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/@ahmadnassri/spawn-promise/-/spawn-promise-1.2.0.tgz#9a706c2995eca185b871b3a817a26e79309f4795"
+  integrity sha512-QvFuwrlKLGyMuQj7ohCLXtrVrDAQ7FyWjDX9f3WxpD3pGPGFzCafG/ZGIVWB6wNLwerZo+E5GplgQBqoYnC61g==
+  dependencies:
+    "@ahmadnassri/error" "^1.1.0"
+
 "@ava/babel-plugin-throws-helper@^3.0.0":
   version "3.0.0"
   resolved "https://registry.npmjs.org/@ava/babel-plugin-throws-helper/-/babel-plugin-throws-helper-3.0.0.tgz#2c933ec22da0c4ce1fc5369f2b95452c70420586"
