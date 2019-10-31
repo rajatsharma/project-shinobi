@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@enginite/standard": "0.1.0-alpha.1",
-    "react": "16.8.2",
+    "react": "16.11.0",
     "react-dom": "16.8.2",
     "redux": "4.0.1",
     "react-redux": "6.0.1",
