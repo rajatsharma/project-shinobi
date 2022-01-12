@@ -8,9 +8,9 @@
 
 ## Includes
 
-- [Vite](https://vitejs.dev/) for building application.
-- [Vanilla Extract](https://vanilla-extract.style/) for type-safe styling.
-- [ReativeX](https://reactivex.io/) for state/effect management.
+- ⚡️ [Vite](https://vitejs.dev/) for building application.
+- 🍦 [Vanilla Extract](https://vanilla-extract.style/) for type-safe styling.
+- 🌩 [ReativeX](https://reactivex.io/) for state/effect management.
 
 ## Getting Started
 
