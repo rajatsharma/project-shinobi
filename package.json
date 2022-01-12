@@ -7,8 +7,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vanilla-extract/css": "^1.6.8",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "rxjs": "^7.5.2",
+    "use-observable": "https://github.com/rajatsharma/use-observable"
   },
   "eslintConfig": {
     "extends": "rsh"
@@ -16,6 +19,7 @@
   "devDependencies": {
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
+    "@vanilla-extract/vite-plugin": "^3.1.2",
     "@vitejs/plugin-react": "^1.0.7",
     "eslint-config-rsh": "https://github.com/rajatsharma/eslint-config-rsh",
     "typescript": "^4.4.4",
