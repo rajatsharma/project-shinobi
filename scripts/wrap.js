@@ -1,1 +1,0 @@
-require('@enginite/standard').wrap();
