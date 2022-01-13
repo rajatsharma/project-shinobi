@@ -982,7 +982,7 @@ eslint-config-prettier@^8.3.0:
 
 "eslint-config-rsh@https://github.com/rajatsharma/eslint-config-rsh":
   version "1.0.0"
-  resolved "https://github.com/rajatsharma/eslint-config-rsh#494418281c5bc2be81c0fcff2da442f30866b81a"
+  resolved "https://github.com/rajatsharma/eslint-config-rsh#c460491afd9895e1d66969ce6146e5bc63a33619"
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.9.0"
     "@typescript-eslint/parser" "^5.9.0"
