@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Shinobi
+  Project Shinobi
   <br>
 </h1>
 
