@@ -10,7 +10,6 @@
 
 - ⚡️ [Vite](https://vitejs.dev/) for building application.
 - 🍦 [Vanilla Extract](https://vanilla-extract.style/) for type-safe styling.
-- 🌩 [ReativeX](https://reactivex.io/) for state/effect management.
 
 ## Getting Started
 
@@ -22,18 +21,18 @@ $ npx degit https://github.com/rajatsharma/shinobi my-app
 $ cd my-app
 
 # Install dependencies
-$ yarn
+$ pnpm i
 ```
 ## Available Commands
 
-#### `yarn dev`
+#### `pnpm dev`
 
 Runs your application at localhost:3000 with HMR enabled, which will automatically make changes to your application with reloading your browser.
 
-#### `yarn build`
+#### `pnpm build`
 
 Build project for production
 
-#### `yarn preview`
+#### `pnpm preview`
 
 Generate Static site.
