@@ -1,38 +1,52 @@
-<h1 align="center">
-  <br>
-  Project Shinobi
-  <br>
-</h1>
+# Project Shinobi 🥷
 
-<h4 align="center">React Template powered by Vite</h4>
+Template project to create React App using Vite and Tailwind.
 
-## Includes
+## 🛠️ Technologies
 
-- ⚡️ [Vite](https://vitejs.dev/) for building application.
-- 🍦 [Vanilla Extract](https://vanilla-extract.style/) for type-safe styling.
+- ⚛️ React
+- 📘 TypeScript
+- 🎨 Tailwind CSS
+- ⚡ Vite
 
-## Getting Started
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v14+)
+- pnpm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/rajatsharma/project-shinobi.git my-app
+cd my-app
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+```
+
+3. Start the development server:
+```bash
+pnpm dev
+```
+
+4. Open your browser and navigate to:
+```
+http://localhost:5173
+```
+
+## 🏗️ Building for Production
 
 ```bash
-# Create Shinobi App
-$ npx degit https://github.com/rajatsharma/shinobi my-app
-
-# Go into the project directory
-$ cd my-app
-
-# Install dependencies
-$ pnpm i
+pnpm build
 ```
-## Available Commands
 
-#### `pnpm dev`
+The build files will be located in the `dist` directory.
 
-Runs your application at localhost:3000 with HMR enabled, which will automatically make changes to your application with reloading your browser.
+## 📄 License
 
-#### `pnpm build`
-
-Build project for production
-
-#### `pnpm preview`
-
-Generate Static site.
+This project is licensed under the MIT License - see the LICENSE file for details.
